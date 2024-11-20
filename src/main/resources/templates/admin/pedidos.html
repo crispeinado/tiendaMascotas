@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns="http://www.thimeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Listado de Pedidos</title>
+</head>
+<body style="background-color: #f1f7ff; font-family: sans-serif; font-size: 16px; color: #333;">
+
+    <div th:insert="fragments/general.html :: menu"></div>
+
+    <h1 style="text-align: center; color: #205bba; margin: 20px 0;">Listado de pedidos de la tienda</h1>
+
+    <div style="display: flex; flex-direction: column; gap: 20px; padding: 20px; max-width: 800px; margin: auto;">
+        <div th:each="p : ${pedidos}" style="background-color: #ddedff; padding: 20px; border-radius: 10px; box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);">
+            <h2 style="margin-bottom: 10px; color: #205bba;">Pedido de: <span th:text="${p.nombreCompleto}"></span></h2>
+            <p style="margin-bottom: 5px;">Dirección: <span th:text="${p.direccion}"></span></p>
+            <p style="margin-bottom: 10px;">Estado: <span th:text="${p.estado}"></span></p>
+            <a th:href="@{${'ver-detalles-pedido?id=' + p.id}}" 
+               style="color: #205bba; text-decoration: none; font-weight: bold; padding: 10px 15px; border: 1px solid #205bba; border-radius: 5px; display: inline-block;">
+                Ver Detalles
+            </a>
+        </div>
+    </div>
+
+</body>
+</html>

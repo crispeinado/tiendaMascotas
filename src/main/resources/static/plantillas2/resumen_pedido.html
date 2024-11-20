@@ -1,0 +1,36 @@
+<div class="formulario">
+<h2>PLACE ORDER</h2>
+<h4>SUMMARY:</h4>
+    <div>
+        <h3>Products:</h3>
+        <div id="productos_pedido">
+            {{#productos}}
+            <div>
+                <img src="mostrar_imagen?id={{id}}" alt="{{nombre_producto}}" height="80px" />
+                <p>{{nombre_producto}}</p>
+                <p>{{mascota}}</p>
+                <p>{{marca}}</p>
+                <p><strong>{{precio}} €</strong></p>
+                <p>Amount: {{cantidad}}</p>
+            </div>
+            {{/productos}}
+        </div>
+    </div>
+    <div>
+        <h3>Shipping:</h3>
+        <p>Name: {{nombreCompleto}}</p>
+        <p>Address: {{tipoCalle}} {{direccion}}</p>
+        <p>Number: {{numero}}</p>
+        <p>Province: {{provincia}}</p>
+        <p>Post code: {{cp}}</p>
+    </div>
+    <div>
+        <h3>Payment:</h3>
+        <p>Type of card: {{tipoTarjeta}}</p>
+        <p>Number: {{numTarjeta}}</p>
+        <p>Holder: {{titularTarjeta}}</p>
+        <p>CVV: {{cvvTarjeta}}</p>
+        <p>Expiration date: {{fechaCaducidadTarjeta}}</p>
+    </div>
+    <button id="boton_confirmar_pedido" class="boton-identificarme">CONFIRM</button>
+</div>

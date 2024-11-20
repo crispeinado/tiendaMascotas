@@ -1,0 +1,22 @@
+<div id="cuerpo-productos">
+{{#.}}
+
+	<div id="productos" style="margin: 10px">
+	<a href="#" class="enlace_ver_detalles_producto" id-producto="{{id}}">
+	<img src="mostrar_imagen?id={{id}}" height="80px" /> <br>
+	{{ nombre_producto }} <br>
+	{{ mascota }} <br>
+	{{ marca }} <br>
+	{{ precio }} € <br>
+	cantidad: {{ cantidad }}<br>
+	
+</a>
+	
+	</div>
+{{/.}}
+
+<br>total productos: <span id="total_productos"></span><br>
+<div>
+	<a href="#" id="realizar-pedido" ><button class="boton-identificarme">REALIZAR PEDIDO</button></a>
+</div>
+</div>

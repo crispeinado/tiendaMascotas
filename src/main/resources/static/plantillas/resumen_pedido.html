@@ -1,0 +1,43 @@
+<div class="formulario">
+    <h2>REALIZAR PEDIDO</h2>
+    <h4>RESUMEN DEL PEDIDO:</h4>
+    <div>
+        <h3>Productos del pedido:</h3>
+        <div id="productos_pedido">
+            {{#productos}}
+            <div>
+                <img src="mostrar_imagen?id={{id}}" alt="{{nombre_producto}}" height="80px" />
+                <p>{{nombre_producto}}</p>
+                <p>{{mascota}}</p>
+                <p>{{marca}}</p>
+                <p><strong>{{precio}} €</strong></p>
+                <p>Cantidad: {{cantidad}}</p>
+            </div>
+            {{/productos}}
+        </div>
+    </div>
+    <div>
+        <h3>Datos de envío:</h3>
+        <p>Nombre: {{nombreCompleto}}</p>
+        <p>Dirección: {{tipoCalle}} {{direccion}}</p>
+        <p>Número: {{numero}}</p>
+        <p>Provincia: {{provincia}}</p>
+        <p>Código Postal: {{cp}}</p>
+    </div>
+    <div>
+        <h3>Datos de pago:</h3>
+        <p>Tipo de tarjeta: {{tipoTarjeta}}</p>
+        <p>Número: {{numTarjeta}}</p>
+        <p>Titular: {{titularTarjeta}}</p>
+        <p>CVV: {{cvvTarjeta}}</p>
+        <p>Fecha de caducidad: {{fechaCaducidadTarjeta}}</p>
+    </div>
+    <div>
+        <h3>Datos de tu mascota:</h3>
+        <p>Nombre: {{nombreMascota}}</p>
+        <p>Especie: {{especie}}</p>
+        <p>Edad: {{edad}}</p>
+        <p>Tamaño: {{tamanio}}</p>
+    </div>
+    <button id="boton_confirmar_pedido" class="boton-identificarme">CONFIRMAR PEDIDO</button>
+</div>

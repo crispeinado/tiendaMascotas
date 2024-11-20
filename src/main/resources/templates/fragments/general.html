@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns="http://www.thimeleaf.org"> <!-- opcional -->
+<head>
+<meta charset="UTF-8">
+<title>Administración</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+</head>
+<body style="background-color: #f7fbff; font-family: 'Roboto', Arial, sans-serif; font-size: 16px; color: #333; margin: 0; padding: 0; box-sizing: border-box;">
+
+<div th:fragment="menu" style="width: 100%;">
+
+    <div style="text-align: center; font-weight: bold; background-color: #205bba; color: white; padding: 15px; font-size: 24px;">
+        ADMINISTRACIÓN
+    </div>
+    <div th:text="#{titulo.bienvenida.admin}" style="text-align: center; margin-top: 20px; font-size: 28px; font-family: 'Roboto', serif; color: #205bba; text-transform: uppercase; letter-spacing: 2px; font-weight: bold;">
+    </div>
+
+    <header>
+        <div style="background-color: #badaff; padding: 20px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto;">
+                <div style="flex: 1; text-align: center;">
+                    <h1 style="margin: 10px 0 0; font-size: 24px;">
+                        <a style="color: #205bba; text-decoration: none; font-family: 'Playfair Display', serif;">VIVANIMALES</a>
+                    </h1>
+                </div>
+            </div>
+        </div>
+
+        <div style="background-color: #ddedff; border-bottom: 2px solid #205bba;">
+            <nav style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 10px;">
+                <ul style="display: flex; gap: 2rem; list-style: none; padding: 0; margin: 0;">
+                    <li><a href="#" id="menu-inicio" style="color: #205bba; font-weight: bold; text-decoration: none; font-family: 'Roboto', sans-serif;">INICIO</a></li>
+                    <li><a href="productos" style="color: #205bba; font-weight: bold; text-decoration: none; font-family: 'Roboto', sans-serif;">GESTIONAR PRODUCTOS</a></li>
+                    <li><a href="pedidos" style="color: #205bba; font-weight: bold; text-decoration: none; font-family: 'Roboto', sans-serif;">GESTIONAR PEDIDOS</a></li>
+                </ul>
+                <div>
+                    <a href="../logout-admin" style="color: #205bba; font-weight: bold; text-decoration: none; border: 2px solid #205bba; padding: 5px 10px; border-radius: 5px; transition: 0.3s;">CERRAR SESIÓN</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+</div>
+
+</body>
+</html>

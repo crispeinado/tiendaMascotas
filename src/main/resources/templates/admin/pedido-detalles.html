@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns="http://www.thimeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Detalles del Pedido</title>
+</head>
+<body style="background-color: #f1f7ff; font-family: sans-serif; font-size: 16px; color: #333;">
+
+    <div th:insert="fragments/general.html :: menu"></div>
+
+    <h1 style="text-align: center; color: #205bba; margin: 20px 0;">Detalles del Pedido</h1>
+
+    <div style="max-width: 800px; margin: auto; padding: 20px; background-color: #ddedff; border-radius: 10px; box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);">
+
+        <div style="margin-bottom: 20px;">
+            <h2 style="color: #205bba; margin-bottom: 10px;">Datos de Envío</h2>
+            <p><strong>Nombre:</strong> <span th:text="${pedido.nombreCompleto}"></span></p>
+            <p><strong>Tipo de calle:</strong> <span th:text="${pedido.tipoCalle}"></span></p>
+            <p><strong>Dirección:</strong> <span th:text="${pedido.direccion}"></span></p>
+            <p><strong>Número:</strong> <span th:text="${pedido.numero}"></span></p>
+            <p><strong>Provincia:</strong> <span th:text="${pedido.provincia}"></span></p>
+            <p><strong>Código Postal:</strong> <span th:text="${pedido.cp}"></span></p>
+        </div>
+
+        <div style="margin-bottom: 20px;">
+            <h2 style="color: #205bba; margin-bottom: 10px;">Datos de Pago</h2>
+            <p><strong>Tipo de tarjeta:</strong> <span th:text="${pedido.tipoTarjeta}"></span></p>
+            <p><strong>Número:</strong> <span th:text="${pedido.numTarjeta}"></span></p>
+            <p><strong>Titular:</strong> <span th:text="${pedido.titularTarjeta}"></span></p>
+            <p><strong>CVV:</strong> <span th:text="${pedido.cvvTarjeta}"></span></p>
+            <p><strong>Fecha de caducidad:</strong> <span th:text="${pedido.fechaCaducidadTarjeta}"></span></p>
+        </div>
+
+        <div style="margin-bottom: 20px;">
+            <h2 style="color: #205bba; margin-bottom: 10px;">Productos</h2>
+            <div th:each="productoPedido:${pedido.productosPedido}" style="margin-bottom: 15px; padding: 10px; border: 1px solid #bad9ff; border-radius: 5px; background-color: #ffffff;">
+                <p><strong>Producto:</strong> <span th:text="${productoPedido.producto.nombreProducto}"></span></p>
+                <p><strong>Mascota:</strong> <span th:text="${productoPedido.producto.mascota}"></span></p>
+                <p><strong>Marca:</strong> <span th:text="${productoPedido.producto.marca}"></span></p>
+                <p><strong>Precio/Unidad:</strong> <span th:text="${productoPedido.producto.precio}"></span> €</p>
+                <p><strong>Cantidad:</strong> <span th:text="${productoPedido.cantidad}"></span></p>
+            </div>
+        </div>
+
+        <div style="margin-bottom: 20px;">
+            <h2 style="color: #205bba; margin-bottom: 10px;">Actualizar Estado</h2>
+            <input type="hidden" id="id_pedido" th:field="${pedido.id}" />
+            <label for="select_estado" style="margin-right: 10px; font-weight: bold;">Estado:</label>
+            <select id="select_estado" th:field="${pedido.estado}" style="padding: 10px; border: 1px solid #bad9ff; border-radius: 5px; font-size: 14px;">
+                <option th:each="estado:${estados}" th:text="${estado}" th:value="${estado.key}"></option>
+            </select>
+        </div>
+
+    </div>
+
+    <script src="../librerias_js/jquery.js"></script>
+    <script>
+        // Actualizar estado del pedido
+        $("#select_estado").change(function() {
+            let estado = $("#select_estado").find(":selected").val();
+            let idPedido = $("#id_pedido").val();
+            alert("Estado: " + estado + " asignado al pedido con ID: " + idPedido);
+            $.post("administracion-actualizar-estado-pedido", {
+                id: idPedido,
+                estado: estado
+            }).done(function(res) {
+                alert(res);
+            });
+        });
+    </script>
+
+</body>
+</html>

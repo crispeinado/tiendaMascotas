@@ -1,0 +1,13 @@
+<div style="margin: 10px">
+    <div id="cuerpo-productos">
+        {{#.}}
+        <a href="#" class="enlace_ver_detalles_producto" id-producto="{{id}}">
+            <div id="productos">
+                <h3>{{nombre_producto}}</h3>
+                <img src="mostrar_imagen?id={{id}}" alt="{{nombre_producto}}" height="150px" id="portada" />
+                <p><strong>{{precio}} €</strong></p>
+            </div>
+        </a>
+        {{/.}}
+    </div>
+</div>

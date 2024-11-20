@@ -1,0 +1,21 @@
+<div id="cuerpo-productos">
+    {{#.}}
+    <div id="productos">
+        <a href="#" class="enlace_ver_detalles_producto" id-producto="{{id}}">
+            <img src="mostrar_imagen?id={{id}}" alt="{{nombre_producto}}" height="200px" />
+            <h3>{{nombre_producto}}</h3>
+            <p>{{mascota}}</p>
+            <p>{{marca}}</p>
+            <p><strong>{{precio}} €</strong></p>
+            <p>Amount: {{cantidad}}</p>
+        </a>
+    </div>
+    {{/.}}
+</div>
+
+<div id="contenedor-carrito">
+    <h3>Total items: <span id="total_productos"></span></h3>
+    <a href="#" id="realizar-pedido">
+        <button class="boton-identificarme">PLACE ORDER</button>
+    </a>
+</div>

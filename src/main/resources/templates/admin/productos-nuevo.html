@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Registrar Nuevo Producto</title>
+</head>
+<body style="background-color: #f1f7ff; font-family: sans-serif; font-size: 16px; color: #333;">
+
+    <div th:insert="fragments/general.html::menu"></div>
+
+    <h1 style="text-align: center; color: #205bba; margin: 20px 0;">Registrar Nuevo Producto</h1>
+
+    <div style="max-width: 600px; margin: auto; padding: 20px; background-color: #ddedff; border-radius: 10px; box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);">
+
+        <form action="#" th:action="productos-guardar-nuevo" th:object="${nuevoProducto}" method="post" enctype="multipart/form-data" style="display: flex; flex-direction: column; gap: 15px;">
+            
+            <label for="nombreProducto" style="font-weight: bold;">Producto:</label>
+            <input type="text" id="nombreProducto" th:field="*{nombreProducto}" style="padding: 10px; border: 1px solid #bad9ff; border-radius: 5px;" />
+            <span style="color: red; font-size: 14px;" th:if="${#fields.hasErrors('nombreProducto')}" th:errors="*{nombreProducto}"></span>
+
+            <label for="mascota" style="font-weight: bold;">Mascota:</label>
+            <input type="text" id="mascota" th:field="*{mascota}" style="padding: 10px; border: 1px solid #bad9ff; border-radius: 5px;" />
+
+            <label for="marca" style="font-weight: bold;">Marca:</label>
+            <input type="text" id="marca" th:field="*{marca}" style="padding: 10px; border: 1px solid #bad9ff; border-radius: 5px;" />
+
+            <label for="tamanioMascota" style="font-weight: bold;">Peso (kg):</label>
+            <input type="number" id="tamanioMascota" th:field="*{tamanioMascota}" style="padding: 10px; border: 1px solid #bad9ff; border-radius: 5px;" />
+
+            <label for="descripcion" style="font-weight: bold;">Descripción:</label>
+            <input type="text" id="descripcion" th:field="*{descripcion}" style="padding: 10px; border: 1px solid #bad9ff; border-radius: 5px;" />
+
+            <label for="precio" style="font-weight: bold;">Precio (€):</label>
+            <input type="number" id="precio" step=".01" th:field="*{precio}" style="padding: 10px; border: 1px solid #bad9ff; border-radius: 5px;" />
+            <span style="color: red; font-size: 14px;" th:if="${#fields.hasErrors('precio')}" th:errors="*{precio}"></span>
+
+            <label for="idCategoria" style="font-weight: bold;">Categoría:</label>
+            <select id="idCategoria" th:field="*{idCategoria}" style="padding: 10px; border: 1px solid #bad9ff; border-radius: 5px;">
+                <option th:each="c : ${categorias}" th:text="${c.nombre}" th:value="${c.id}"></option>
+            </select>
+
+            <label for="archivoSubido" style="font-weight: bold;">Imagen del Producto:</label>
+            <input type="file" id="archivoSubido" th:field="*{archivoSubido}" style="padding: 10px; border: 1px solid #bad9ff; border-radius: 5px;" />
+
+            <input type="submit" value="REGISTRAR NUEVO PRODUCTO" style="padding: 10px; background-color: #205bba; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 16px;" />
+        </form>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns="http://www.thimeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>VIVANIMALES</title>
+
+<link rel="stylesheet" href="css/style1.css" />
+<link rel="stylesheet" href="css/style2.css" />
+
+</head>
+<body>
+	<header>
+		<div class="header">
+			<div class="contenedor header">
+				<div class="logo">
+					<a href="#" id="menu-inicio" >
+						<img src="iconos/logo.png" class="icono-logo" style="width: 50px"/>
+					</a>
+						<h1 class="logo"><a href="#" id="menu-inicio" >VIVANIMALES</a></h1>
+				</div>
+				<div class="usuario">
+					<a href="#" id="menu-identificarme">
+						<img src="iconos/identificarme.png" class="icono-identificarme" style="width: 50px"/>
+					</a>
+					<a href="#" id="menu-carrito" >
+						<img src="iconos/carrito.png" class="icono-carrito" style="width: 50px"/>
+					</a>
+						<div class="content-shopping-cart">
+<!-- 							<span id="total_productos"></span> -->
+						</div>
+				</div>
+			</div>
+		</div>
+		<div class="contenedor-navbar">
+			<nav class="navbar contenedor">
+				<ul class="menu">
+					<li><a href="#" id="menu-registrarme" >REGISTRARME</a></li>
+					<li><a href="#" id="menu-cerrar-sesion" style="visibility:hidden">CERRAR SESION</a></li>
+				</ul>
+				<div class="acceder_administracion">
+					<a href="admin/" id="admin">ADMINISTRACIÓN</a>
+				</div>
+				
+			</nav>
+		</div>
+<!-- 	<h1 id="nombre-tienda" style="font-family: candara">VIVANIMALES</h1> -->
+</header>
+
+<div>
+idioma: <a href="?idioma=es">ESPAÑOL</a> <a href="?idioma=en">ENGLISH</a>
+</div>
+<div th:text="#{titulo.bienvenida}"></div>
+
+<div id="contenedor">
+</div>
+
+<script src="librerias_js/jquery.js" ></script>
+<script src="librerias_js/mustache.js" ></script>
+<script src="librerias_js/js.cookie.min.js" ></script>
+
+<!-- librerias de js -->
+<script src="javascript/globales.js" ></script>
+<script src="javascript/variables_plantillas.js" ></script>
+<script src="javascript/operaciones.js" ></script>
+<script src="javascript/operaciones_checkout.js" ></script>
+<script src="javascript/menu.js" ></script>
+<script src="javascript/validaciones.js" ></script>
+<script>
+//listar productos por defecto cuando se cargue la página
+obtenerProductos()
+</script>
+
+</body>
+</html>

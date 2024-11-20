@@ -1,0 +1,43 @@
+<h2>PLACE ORDER</h2>
+<h3>STEP 1 - <u>STEP 2</u> - STEP 3</h3>
+<h4>SUMMARY:</h4>
+<div>
+Products:
+	<div id="productos_pedido">
+		{{#productos}}
+			<div>
+				<img src="mostrar_imagen?id={{id}}" height="80px" /> <br>
+				{{nombre_producto}} <br>
+				{{mascota}} <br>
+				{{marca}} <br>
+				{{precio}} € <br>
+				amount: {{cantidad}}
+			</div>
+		{{/productos}}	
+	</div>
+</div>
+
+<div>
+Shipping:
+	<div>
+		Name: {{nombreCompleto}} <br>
+		Address: {{tipoCalle}} <br>
+		{{direccion}} <br>
+		Number: {{numero}} <br>
+		Province: {{provincia}} <br>
+		Post code: {{cp}} <br>
+	</div>
+</div>
+
+<div>
+Payment:
+	<div>
+		Type of card: {{tipoTarjeta}} <br>
+		Number: {{numTarjeta}} <br>
+		Holder: {{titularTarjeta}} <br>
+		CVV: {{cvvTarjeta}} <br>
+		Expiration date: {{fechaCaducidadTarjeta}} <br>
+	</div>
+</div>
+
+<button id="boton_confirmar_pedido">CONFIRM</button>
